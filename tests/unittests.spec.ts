@@ -14,7 +14,7 @@
 // tslint:disable:max-line-length
 
 import 'jasmine';
-import {markify, parse, tokenize, TokenType} from '../src/index';
+import {markify, parse, tokenize, TokenType, TOKEN_TYPE_ASTERISK} from '../src/index';
 
 describe('Markup Parser', () => {
     describe('tokenizer', () => {
@@ -146,11 +146,15 @@ describe('Markup Parser', () => {
         });
     });
 
-    function testPatterns(cases: Array<[string, string]>) {
+    function testPatterns(cases: Array<[string, string]>, classes?: Record<number, string>) {
         for (const testcase of cases) {
             const input = testcase[0];
             const expected = testcase[1];
-            expect(markify(input)).toEqual(expected);
+            if (classes == undefined) {
+                expect(markify(input)).toEqual(expected);
+            } else {
+                expect(markify(input, classes)).toEqual(expected);
+            }
         }
     }
 
@@ -265,6 +269,24 @@ describe('Markup Parser', () => {
             ]);
         });
 
+        it('supports overriding the css classes (TS const enum)', () => {
+            testPatterns([
+                ['*bold*', '<span class="bbb">bold</span>'],
+                ['_italic_', '<span class="iii">italic</span>'],
+                ['~strikethrough~', '<span class="sss">strikethrough</span>'],
+            ], {
+                [TokenType.Asterisk]: 'bbb',
+                [TokenType.Underscore]: 'iii',
+                [TokenType.Tilde]: 'sss',
+            });
+        });
+
+        it('supports overriding the css classes (JS compat constants)', () => {
+            testPatterns(
+                [['*bold*', '<span class="bbb">bold</span>']],
+                {[TOKEN_TYPE_ASTERISK]: 'bbb'}
+            );
+        });
     });
 
 });
