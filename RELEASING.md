@@ -7,8 +7,8 @@ Set variables:
 
 Update version numbers:
 
-    vim -p package.json
-    cargo update -p threema-markup
+    vim package.json
+    npm install
 
 Update changelog:
 
