@@ -1,6 +1,6 @@
 {
     "name": "@threema/threema-markup",
-    "version": "1.0.0-alpha.1",
+    "version": "1.0.0-alpha.2",
     "description": "A markup parser and formatter for the markup language used in Threema.",
     "author": "Threema GmbH",
     "license": "MIT",

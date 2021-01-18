@@ -13,6 +13,10 @@ Possible log types:
 - `[maintenance]` for maintenance work like dependency updates.
 
 
+### v1.0.0-alpha.2 (2021-01-18)
+
+- [added] Allow overriding CSS classes
+
 ### v1.0.0-alpha.1 (2021-01-18)
 
 Code extracted from threema-web, initial release on npm.
