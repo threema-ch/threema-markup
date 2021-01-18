@@ -1,0 +1,40 @@
+{
+    "name": "threema-markup",
+    "version": "1.0.0",
+    "description": "A markup parser and formatter for the markup language used in Threema.",
+    "author": "Threema GmbH",
+    "license": "MIT",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "/dist",
+        "/LICENSE-*",
+        "/CHANGELOG.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/threema-ch/threema-markup.git"
+    },
+    "keywords": [
+        "markup",
+        "threema",
+        "formatting"
+    ],
+    "homepage": "https://github.com/threema-ch/threema-markup#readme",
+    "bugs": {
+        "url": "https://github.com/threema-ch/threema-markup/issues"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build",
+        "test": "jasmine-ts --config=jasmine.json"
+    },
+    "devDependencies": {
+        "@types/jasmine": "^3.6.2",
+        "jasmine": "^3.6.3",
+        "jasmine-spec-reporter": "^6.0.0",
+        "jasmine-ts": "^0.3.0",
+        "ts-node": "^7.0.1",
+        "typescript": "^4.1.3"
+    }
+}
