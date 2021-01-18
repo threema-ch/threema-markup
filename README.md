@@ -7,12 +7,36 @@ A markup parser and formatter for the markup language used in Threema.
 
 ## Usage
 
+The simplest way is to apply the `markify` function to text with markup.
+
 ```typescript
 import {markify} from '@threema/threema-markup';
 
 const formatted = markify('*bold text with _italic_ *');
 // Result: <span class="text-bold">bold text with <span class="text-italic">italic</span> </span>
 ```
+
+By default, the following CSS class mapping is used:
+
+- Bold: `text-bold`
+- Italic: `text-italic`
+- Strikethrough: `text-strike`
+
+But this can be customized:
+
+```typescript
+import {TokenType, markify} from '@threema/threema-markup';
+
+const formatted = markify('*bold text with _italic_ *', {
+    [TokenType.Asterisk]: 'a',
+    [TokenType.Underscore]: 'u',
+    [TokenType.Tilde]: 't',
+});
+// Result: <span class="a">bold text with <span class="u">italic</span> </span>
+```
+
+(Note: If you don't use TypeScript, you can use the exported constants
+`TOKEN_TYPE_(ASTERISK|UNDERSCORE|TILDE)` instead.)
 
 
 ## Development

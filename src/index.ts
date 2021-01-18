@@ -4,10 +4,10 @@
  * Copyright (c) 2018–2021 Threema GmbH.
  *
  * Licensed under either of
- * 
- *  - Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- *  - MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
- * 
+ *
+ * - Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+ * - MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+ *
  * at your option.
  */
 
@@ -24,6 +24,11 @@ export interface Token {
     value?: string;
 }
 
+// Re-export consts above for non-TS consumers
+export const TOKEN_TYPE_ASTERISK = TokenType.Asterisk;
+export const TOKEN_TYPE_UNDERSCORE = TokenType.Underscore;
+export const TOKEN_TYPE_TILDE = TokenType.Tilde;
+
 // The markup characters.
 const markupChars: Record<number, string> = {
     [TokenType.Asterisk]: '*',
@@ -32,7 +37,7 @@ const markupChars: Record<number, string> = {
 };
 
 // CSS classes for the HTML markup.
-const cssClasses: Record<number, string> = {
+const defaultCssClasses: Record<number, string> = {
     [TokenType.Asterisk]: 'text-bold',
     [TokenType.Underscore]: 'text-italic',
     [TokenType.Tilde]: 'text-strike',
@@ -129,8 +134,16 @@ export function tokenize(text: string): Token[] {
     return tokens;
 }
 
-export function parse(tokens: Token[]): string {
+/**
+ * Convert a list of tokens to HTML.
+ *
+ * Optionally, a mapping from token types to CSS class strings can be specified.
+ */
+export function parse(tokens: Token[], classes?: Record<number, string>): string {
     const stack: Token[] = [];
+
+    // Determine class mapping
+    const cssClasses = classes != undefined ? classes : defaultCssClasses;
 
     // Booleans to avoid searching the stack.
     // This is used for optimization.
@@ -158,8 +171,8 @@ export function parse(tokens: Token[]): string {
                     textBuf += token.value;
                     break;
                 case TokenType.Asterisk:
-                    case TokenType.Underscore:
-                    case TokenType.Tilde:
+                case TokenType.Underscore:
+                case TokenType.Tilde:
                     textBuf += markupChars[token.kind];
                     break;
                 case TokenType.Newline:
@@ -206,8 +219,8 @@ export function parse(tokens: Token[]): string {
 
             // If a markup token is found, try to find a matching token.
             case TokenType.Asterisk:
-                case TokenType.Underscore:
-                case TokenType.Tilde:
+            case TokenType.Underscore:
+            case TokenType.Tilde:
                 // Optimization: Only search the stack if a token with this token type exists
                 if (hasToken(token.kind)) {
                     // Pop tokens from the stack. If a matching token was found, apply
@@ -258,6 +271,11 @@ export function parse(tokens: Token[]): string {
     return consumeStack();
 }
 
-export function markify(text: string): string {
-    return parse(tokenize(text));
+/**
+ * Convert text with markup to HTML.
+ *
+ * Optionally, a mapping from token types to CSS class strings can be specified.
+ */
+export function markify(text: string, classes?: Record<number, string>): string {
+    return parse(tokenize(text), classes);
 }
