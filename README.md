@@ -1,5 +1,7 @@
 # threema-markup
 
+[![CI][ci-badge]][ci]
+
 A markup parser and formatter for the markup language used in Threema.
 
 
@@ -38,3 +40,7 @@ Licensed under either of
    http://opensource.org/licenses/MIT)
 
 at your option.
+
+<!-- Badges -->
+[ci]: https://github.com/threema-ch/threema-markup/actions?query=workflow%3ACI
+[ci-badge]: https://img.shields.io/github/workflow/status/threema-ch/threema-markup/CI/main
