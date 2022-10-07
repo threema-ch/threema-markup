@@ -11,7 +11,7 @@
  * at your option.
  */
 
-export const enum TokenType {
+export enum TokenType {
     Text,
     Newline,
     Asterisk,
