@@ -13,6 +13,16 @@ Possible log types:
 - `[maintenance]` for maintenance work like dependency updates.
 
 
+### v1.1.0 (2022-10-07)
+
+- [changed] The `TokenType` type is now an enum, not a const enum. This means
+  it can be used directly from non-TS consumers, and it works with the
+  `isolatedModules` option as well.
+- [deprecated] The constants `TOKEN_TYPE_ASTERISK`, `TOKEN_TYPE_UNDERSCORE` and
+  `TOKEN_TYPE_TILDE` are deprecated. Use the `TokenType` attributes instead.
+- [maintenance] Drop support for NodeJS 10 and 12 (should still work, but untested)
+- [maintenance] Update test dependencies
+
 ### v1.0.0 (2021-01-19)
 
 - [maintenance] Tag final 1.0.0 release
