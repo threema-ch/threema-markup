@@ -1,7 +1,7 @@
 /**
  * This file is part of threema-markup.
  *
- * Copyright (c) 2018–2021 Threema GmbH.
+ * Copyright (c) 2018–2022 Threema GmbH.
  *
  * Licensed under either of
  *
