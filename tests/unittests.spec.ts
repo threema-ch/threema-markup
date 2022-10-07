@@ -14,7 +14,19 @@
 // tslint:disable:max-line-length
 
 import 'jasmine';
+import {SpecReporter, StacktraceOption} from 'jasmine-spec-reporter';
 import {markify, parse, tokenize, TokenType, TOKEN_TYPE_ASTERISK} from '../src/index';
+
+// Set up jasmine reporter
+jasmine.getEnv().clearReporters() // remove default reporter logs
+jasmine.getEnv().addReporter(
+  new SpecReporter({
+    spec: {
+      displayPending: true,
+      displayStacktrace: StacktraceOption.PRETTY,
+    },
+  })
+)
 
 describe('Markup Parser', () => {
     describe('tokenizer', () => {
