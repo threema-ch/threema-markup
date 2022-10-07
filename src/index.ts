@@ -24,9 +24,18 @@ export interface Token {
     value?: string;
 }
 
-// Re-export consts above for non-TS consumers
+// Deprecated re-exports for non-TS consumers
+/**
+ * @deprecated use {@link TokenType.Asterisk} intead
+ */
 export const TOKEN_TYPE_ASTERISK = TokenType.Asterisk;
+/**
+ * @deprecated use {@link TokenType.Underscore} intead
+ */
 export const TOKEN_TYPE_UNDERSCORE = TokenType.Underscore;
+/**
+ * @deprecated use {@link TokenType.Tilde} intead
+ */
 export const TOKEN_TYPE_TILDE = TokenType.Tilde;
 
 // The markup characters.

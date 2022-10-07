@@ -35,9 +35,6 @@ const formatted = markify('*bold text with _italic_ *', {
 // Result: <span class="a">bold text with <span class="u">italic</span> </span>
 ```
 
-(Note: If you don't use TypeScript, you can use the exported constants
-`TOKEN_TYPE_(ASTERISK|UNDERSCORE|TILDE)` instead.)
-
 
 ## Development
 
