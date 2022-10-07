@@ -4,14 +4,8 @@
         "**/*.spec.ts",
         "**/*.spec.js"
     ],
-    "stopSpecOnExpectationFailure": false,
-    "random": true,
-    "reporters": [
-        {
-            "name": "jasmine-spec-reporter#SpecReporter",
-            "options": {
-                "displayStacktrace": "all"
-            }
-        }
-    ]
+    "env": {
+        "stopSpecOnExpectationFailure": false,
+        "random": true
+    }
 }
