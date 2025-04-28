@@ -4,6 +4,7 @@
     "description": "A markup parser and formatter for the markup language used in Threema.",
     "author": "Threema GmbH",
     "license": "MIT",
+    "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "files": [
