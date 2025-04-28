@@ -32,7 +32,7 @@
     },
     "devDependencies": {
         "@types/jasmine": "^5.1.7",
-        "@types/node": "^18.8.3",
+        "@types/node": "^22.15.3",
         "jasmine": "^5.7.0",
         "jasmine-spec-reporter": "^7.0.0",
         "ts-node": "^10.9.1",
