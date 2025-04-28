@@ -29,14 +29,14 @@
     "scripts": {
         "build": "tsc",
         "prepare": "npm run build",
-        "test": "ts-node node_modules/jasmine/bin/jasmine --config=jasmine.json"
+        "test": "tsx node_modules/jasmine/bin/jasmine --config=jasmine.json"
     },
     "devDependencies": {
         "@types/jasmine": "^5.1.7",
         "@types/node": "^22.15.3",
         "jasmine": "^5.7.0",
         "jasmine-spec-reporter": "^7.0.0",
-        "ts-node": "^10.9.1",
+        "tsx": "^4.19.3",
         "typescript": "^5.8.3"
     }
 }
