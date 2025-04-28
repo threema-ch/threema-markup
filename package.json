@@ -3,7 +3,7 @@
     "version": "1.1.0",
     "description": "A markup parser and formatter for the markup language used in Threema.",
     "author": "Threema GmbH",
-    "license": "MIT",
+    "license": "MIT OR Apache-2.0",
     "type": "module",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
