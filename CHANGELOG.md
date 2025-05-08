@@ -13,6 +13,12 @@ Possible log types:
 - `[maintenance]` for maintenance work like dependency updates.
 
 
+### v1.2.0 (2025-05-08)
+
+- [maintenance] Upgrade dependencies
+- [changed] Drop support for NodeJS 14 and 16, add 20/22/23 to CI
+- [changed] Convert to ESM
+
 ### v1.1.0 (2022-10-07)
 
 - [changed] The `TokenType` type is now an enum, not a const enum. This means
