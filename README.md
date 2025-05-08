@@ -64,4 +64,4 @@ at your option.
 
 <!-- Badges -->
 [ci]: https://github.com/threema-ch/threema-markup/actions?query=workflow%3ACI
-[ci-badge]: https://img.shields.io/github/workflow/status/threema-ch/threema-markup/CI/main
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/threema-ch/threema-markup/ci.yml?branch=main
